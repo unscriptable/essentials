@@ -1,0 +1,16 @@
+{
+  "name": "essentials",
+  "version": "0.1.0",
+  "description": "Essential functions for modern apps.",
+  "main": "index.js",
+  "scripts": {
+    "repl": "NODE_ENV=test babel-node",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typecheck": "flow"
+  },
+  "author": "John Hann (https://github.com/unscriptable)",
+  "license": "MIT",
+  "devDependencies": {
+    "flow-bin": "^0.64.0"
+  }
+}
