@@ -9,7 +9,7 @@
 export const after
     = (f, effect) => (...x) => {
         const result = f(...x)
-        try { effect(result, ...x) } catch (e) {}
+        effect(result, ...x)
         return result
     }
 
@@ -19,7 +19,7 @@ export const after
 // and its result (or exception) is ignored.
 export const before
     = (f, effect) => (...x) => {
-        try { effect(...x) } catch (e) {}
+        effect(...x)
         return f(...x)
     }
 
@@ -31,8 +31,8 @@ export const before
 // and its result (or exception) is ignored.
 export const trace
     = (f, before, after) => (...x) => {
-        try { before(...x) } catch (e) {}
+        before(...x)
         const result = f(...x)
-        try { after(result, ...x) } catch (e) {}
+        after(result, ...x)
         return result
     }
