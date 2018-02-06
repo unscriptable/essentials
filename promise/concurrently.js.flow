@@ -1,0 +1,7 @@
+//@flow
+declare export var concurrently : Concurrently
+
+declare export var concurrentlyA : ConcurrentlyA
+
+type Concurrently = <T: Iterable<mixed>>(...promises: T) => Promise<$TupleMap<T, typeof $await>>
+type ConcurrentlyA = typeof Promise.all

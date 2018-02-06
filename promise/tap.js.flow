@@ -1,0 +1,9 @@
+//@flow
+
+declare export var tap : Tap
+
+declare export var tapError : TapError
+
+type Tap = <A>(A=>any) => Identity<A>
+type TapError = <A:Error>(A=>any) => Identity<A>
+type Identity<A> = A => A
