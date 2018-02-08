@@ -1,0 +1,6 @@
+//@flow
+// Functions to render html to dom nodes
+
+declare export var render : Document => string => ?Element | ?DocumentFragment
+
+declare export var strictParent : (nodeName:string) => ?Element

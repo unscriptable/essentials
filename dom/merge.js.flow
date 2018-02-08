@@ -1,0 +1,10 @@
+//@flow
+// Dom insertion functions
+
+declare export var merge : (Element, Element) => Element
+
+declare export var replace : (Element, Element) => Element
+
+declare export var mergeClasses : (Element, Element) => Element
+
+declare export var mergeAttributes : (Element, Element) => Element
