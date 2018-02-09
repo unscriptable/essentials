@@ -6,6 +6,10 @@ declare export var before : Before
 
 declare export var trace : Trace
 
+declare export var tap : <T>(T=>any) => T => T
+
+declare export var failWith : <T:Function>(Error=>any) => T => T
+
 import type {
     NullaryFn, UnaryFn, BinaryFn, TernaryFn, QuarternaryFn, QuinaryFn, SenaryFn
 } from './types'
