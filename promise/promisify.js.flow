@@ -1,0 +1,21 @@
+//@flow
+// Convert a node-style function with a callback into a function that returns
+// a promise.
+declare export var promisify : Promisify
+
+type Promisify
+    = <A, B, C, D, E, R>(NodeFunction5<A, B, C, D, E, R>) => (A, B, C, D, E) => Promise<R>
+    & <A, B, C, D, R>(NodeFunction4<A, B, C, D, R>) => (A, B, C, D) => Promise<R>
+    & <A, B, C, R>(NodeFunction3<A, B, C, R>) => (A, B, C) => Promise<R>
+    & <A, B, R>(NodeFunction2<A, B, R>) => (A, B) => Promise<R>
+    & <A, R>(NodeFunction1<A, R>) => (A) => Promise<R>
+    & <R>(NodeFunction0<R>) => () => Promise<R>
+
+type NodeFunction0<R> = NodeCallback<R> => any
+type NodeFunction1<A, R> = (A, NodeCallback<R>) => any
+type NodeFunction2<A, B, R> = (A, B, NodeCallback<R>) => any
+type NodeFunction3<A, B, C, R> = (A, B, C, NodeCallback<R>) => any
+type NodeFunction4<A, B, C, D, R> = (A, B, C, D, NodeCallback<R>) => any
+type NodeFunction5<A, B, C, D, E, R> = (A, B, C, D, E, NodeCallback<R>) => any
+
+type NodeCallback<T> = ((Error, void) => any) & ((null|void, T) => any)
