@@ -39,6 +39,9 @@ export const trace
         return result
     }
 
+// Create a function that behaves like another function (`f`), but calls
+// a side effect function before executing.  Unlike `before`, `tap` allows
+// any errors thrown from the effect to leak into the main flow.
 export const tap
     = effect => x =>
         (effect(x), x)
