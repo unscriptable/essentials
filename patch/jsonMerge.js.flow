@@ -3,6 +3,10 @@ declare export var jsonMerge : Clone => JsonMerge
 
 declare export var jsonMergeCollection : Clone => JsonMergeCollection
 
+export var arrayAdapter : ArrayAdapter
+
+export var hashMapAdapter : HashMapAdapter
+
 type HashMap<I> = { [key:string]: I }
 
 type Maybe = <T>(T) => ?T
@@ -13,28 +17,36 @@ type Patch<I:Object> = $Supertype<$ObjMap<I, Maybe>>
 type JsonMerge = <I:Object,P:Patch<I>>(I,P) => I
 
 type JsonMergePatcher<I:Object>
-    = (Array<I>, Array<Patch<I>>) => Array<Patch<I>>
-    & (HashMap<I>, HashMap<Patch<I>>) => HashMap<Patch<I>>
+    = (Array<I>, Array<Patch<I>>) => Array<I>
+    & (HashMap<I>, HashMap<Patch<I>>) => HashMap<I>
 
 // TODO: why doesn't this work?
 // type Clone = <T>(T) => T
 type Clone = Function
 
-type CollectionOperations
+type JsonMergeCollection
+    = <I:Object>({
+        insert: (Array<I>, I, string) => any,
+        remove: (Array<I>, I, string) => any,
+        replace: (Array<I>, I, I, string) => any
+    }) => (Array<I>, Array<Patch<I>>) => Array<I>
+    | <I:Object>({
+        insert: (HashMap<I>, I, string) => any,
+        remove: (HashMap<I>, I, string) => any,
+        replace: (HashMap<I>, I, I, string) => any
+    }) => (HashMap<I>, HashMap<Patch<I>>) => HashMap<I>
+
+
+type ArrayAdapter
     = {
-        insert: Function,
-        remove: Function,
-        replace: Function
+        insert: <I:Object>(Array<I>, I, string) => any,
+        remove: <I:Object>(Array<I>, I, string) => any,
+        replace: <I:Object>(Array<I>, I, I, string) => any
     }
 
-type JsonMergeCollection
-    = <I:Object>(CollectionOperations) => JsonMergePatcher<I>
-
-/*
-type Scalars = string | number | boolean | null
-
-type JsonTypes
-    = Scalars
-    | { [key:string]: JsonTypes }
-    | Array<JsonTypes>
-*/
+type HashMapAdapter
+    = {
+        insert: <I:Object>(HashMap<I>, I, string) => any,
+        remove: <I:Object>(HashMap<I>, I, string) => any,
+        replace: <I:Object>(HashMap<I>, I, I, string) => any
+    }

@@ -1,5 +1,5 @@
 //@flow
-export { jsonMergeCollection, jsonMerge } from './jsonMerge'
 export {
-    collection as collectionAdapter, array as arrayAdapter
-} from './adapter'
+    jsonMergeCollection, jsonMerge,
+    hashMapAdapter, arrayAdapter
+} from './jsonMerge'

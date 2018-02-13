@@ -30,10 +30,27 @@ export const jsonMergeCollection
         }
     }
 
+// Adapts a patch function to work with hashMaps.
+export const hashMapAdapter
+    = {
+        insert: (coll, item, key) => { coll[key] = item },
+        remove: (coll, item, key) => { delete coll[key] },
+        replace: (coll, prev, item, key) => { coll[key] = item }
+    }
+
+// Adapsts a patch function to work with arrays.
+export const arrayAdapter
+    = {
+        insert: (array, item, index) => { array.splice(index, 0, item) },
+        remove: (array, item, index) => { array.splice(index, 1) },
+        replace: (array, prev, item, index) => { array[index] = item }
+    }
+
+// Core merge algorithm.
 const merge
     = (target, patch) => {
         // Only try to recursively merge strict objects
-        if (Object.prototype.toString.apply(patch) !== '[object Object]')
+        if (!isStrictObject(patch))
             return patch
         return Object.keys(patch).reduce(
             (result, key) => {
@@ -46,6 +63,10 @@ const merge
                 return result
             },
             // This is in RFC 7396.
-            typeof target !== 'object' ? target : {}
+            isStrictObject(target) ? target : {}
         )
     }
+
+const ObjectToString = Object.prototype.toString
+const isStrictObject
+    = it => ObjectToString.apply(it) === '[object Object]'
