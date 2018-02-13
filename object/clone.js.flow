@@ -1,0 +1,21 @@
+//@flow
+
+declare export var cloneJson : <T:JsonTypes>(T) => T
+
+declare export var cloneSimple : <T:SimpleTypes>(T) => T
+
+type Scalars = string | number | boolean | null
+
+type JsonTypes
+    = Scalars
+    | { [key:string]: JsonTypes }
+    | Array<JsonTypes>
+
+type SimpleTypes
+    = Scalars
+    | Date
+    | RegExp
+    | Map<string, SimpleTypes>
+    | Set<SimpleTypes>
+    | { [key:string]: SimpleTypes }
+    | Array<SimpleTypes>

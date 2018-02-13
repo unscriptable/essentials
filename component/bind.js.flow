@@ -1,0 +1,22 @@
+//@flow
+// Data-binding functions
+
+declare export var bind : <T:Object>(Element, BindSpecs<T>) => BindFunction<T>
+declare export var bindStatic : <T:Object>(Element, BindSpecs<T>) => BindFunction<T>
+
+declare export var updater : <T:Object>(BindSpecs<T>) => (Element, T) => void
+
+type BindFunction
+    = <T:Object>(T) => void
+
+type BindSpecs<T:Object>
+    = { [key:$Keys<T>]: BindSpec }
+
+type BindSpec
+    = {| query: string, attr: string, dynamic?: boolean |}
+    | {| query: string, prop: string, dynamic?: boolean |}
+    | {| query: string, setter: Function, dynamic?: boolean |}
+
+type SetOperation<T> = (el:T) => (value:mixed) => T
+
+type UnsetOperation<T> = (el:T) => () => T

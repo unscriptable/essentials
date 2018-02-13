@@ -1,0 +1,40 @@
+//@flow
+declare export var jsonMerge : Clone => JsonMerge
+
+declare export var jsonMergeCollection : Clone => JsonMergeCollection
+
+type HashMap<I> = { [key:string]: I }
+
+type Maybe = <T>(T) => ?T
+
+// Perhaps some day this will work.  It's too permissive as of 0.65.0:
+type Patch<I:Object> = $Supertype<$ObjMap<I, Maybe>>
+
+type JsonMerge = <I:Object,P:Patch<I>>(I,P) => I
+
+type JsonMergePatcher<I:Object>
+    = (Array<I>, Array<Patch<I>>) => Array<Patch<I>>
+    & (HashMap<I>, HashMap<Patch<I>>) => HashMap<Patch<I>>
+
+// TODO: why doesn't this work?
+// type Clone = <T>(T) => T
+type Clone = Function
+
+type CollectionOperations
+    = {
+        insert: Function,
+        remove: Function,
+        replace: Function
+    }
+
+type JsonMergeCollection
+    = <I:Object>(CollectionOperations) => JsonMergePatcher<I>
+
+/*
+type Scalars = string | number | boolean | null
+
+type JsonTypes
+    = Scalars
+    | { [key:string]: JsonTypes }
+    | Array<JsonTypes>
+*/
