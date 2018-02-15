@@ -33,4 +33,4 @@ const composeN
     = (f, ...gs) =>
         (...x) => gs.reduce((value, g) => g(value), f(...x))
 
-const composers = [ x=>x, _compose2, _compose3, _compose4, _compose5 ]
+const composers = [ x=>x, compose2, compose3, compose4, compose5 ]
