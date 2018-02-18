@@ -1,6 +1,8 @@
 //@flow
 export { merge, replace, mergeClasses, mergeAttributes } from './merge'
-export { render } from './render'
+export {
+  renderer, element as createElement, fragment as createFragment
+} from './render'
 
 // TODO: node replication when data is an array or object
 /*

@@ -2,13 +2,27 @@
 
 // Given a document, returns a render function.
 // Render function takes valid HTML and returns an element or elements.
-export const render
+export const renderer
     = document => {
         const templateElement = document.createElement('template')
         return "content" in templateElement
             ? html5Render(templateElement)
             : legacyRender(document)
     }
+
+export const element
+  = render => template => {
+    const el = render(template).firstElementChild
+    if (!el) throw new Error('Template did not render an element.')
+    return el
+  }
+
+export const fragment
+  = render => template => {
+    const els = render(template).children
+    if (els.length === 0) throw new Error('Template did not render elements.')
+    return els
+  }
 
 // Creates a chain of parent elements required for the requested type
 // (nodeName), returning the immediate parent to the requested type.
