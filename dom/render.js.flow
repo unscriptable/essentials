@@ -2,8 +2,8 @@
 // Functions to render html to dom nodes
 
 declare export var renderer : Document => string => ParentNode
-declare export var element : (Document => string) => Element
-declare export var fragment : (Document => string) => HTMLCollection<Element>
+declare export var element : (string => ParentNode) => Element
+declare export var fragment : (string => ParentNode) => HTMLCollection<Element>
 
 declare export var strictParent : (nodeName:string) => ?Element
 
