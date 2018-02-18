@@ -1,6 +1,15 @@
 //@flow
 // Functions to render html to dom nodes
 
-declare export var render : Document => string => ?Element | ?DocumentFragment
+declare export var render : Document => string => ParentNode
 
 declare export var strictParent : (nodeName:string) => ?Element
+
+// This is temporary until Flow catches up with the latest HTML specs.
+type ParentNode
+  = {
+    children: HTMLCollection<Element>,
+    firstElementChild: ?Element,
+    lastElementChild: ?Element,
+    childElementCount: Number
+  }

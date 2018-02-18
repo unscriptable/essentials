@@ -33,7 +33,7 @@ const legacyRender
     = document => template => {
         const tagName = getFirstTagName(template)
         const container = strictParent(tagName) || document.createElement('div')
-// TODO: return a single element or a document fragment?
+        container.innerHTML = template
         return container
     }
 
