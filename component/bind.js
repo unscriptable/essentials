@@ -62,7 +62,9 @@ const domUpdater
                 : dynamic ? querySnapshot(query) : queryOnce(query)
         return (containerEl, value) =>
             elements(containerEl)
-                .forEach(value === null ? unset(value) : set(value))
+                // TODO: optimize this
+                .map(value === null ? unset : set) // "curry" element
+                .forEach(f => f(value))
     }
 
 export const setProp
