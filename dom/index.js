@@ -4,5 +4,5 @@ export {
     renderer, element as createElement, fragment as createFragment
 } from './render'
 export {
-    addClass, removeClass, removeClasses, addClassFromSet
+    addClass, removeClass, removeAllClasses, addClassFromSet
 } from './classList'

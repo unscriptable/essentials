@@ -80,8 +80,8 @@ export const unsetAttr
         (el.removeAttribute(name), el)
 
 export const setClassNames
-    = addClass => el => className =>
-        (addClass(el, className), el)
+    = addClasses => el => className =>
+        (addClasses(el, className), el)
 
 export const unsetClassNames
     = removeClasses => el => () =>

@@ -2,16 +2,24 @@
 
 // Convenience function to add a className to an element's classList.
 export const addClass
-    = (el, className) =>
-        (el.classList.add(className), el)
+    = (el, className) => {
+        Array.isArray(classNames)
+            ? el.classList.add(...classNames)
+            : el.classList.add(classNames)
+        return el
+    }
 
 // Convenience function to remove a className from an element's classList.
 export const removeClass
-    = (el, className) =>
-        (el.classList.remove(className), el)
+    = (el, className) => {
+        Array.isArray(classNames)
+            ? el.classList.remove(...classNames)
+            : el.classList.remove(classNames)
+        return el
+    }
 
 // Convenience function to remove all classNames from an element's classList.
-export const removeClasses
+export const removeAllClasses
     = el =>
         (el.className = '', el)
 
