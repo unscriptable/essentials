@@ -72,7 +72,8 @@ export const setProp
 
 export const unsetProp
     = name => el => () =>
-        (el[name] = undefined, el)
+        // Element properties are pretty wiley
+        (el[name] = '', delete el[name], el)
 
 export const setAttr
     = name => el => value =>
