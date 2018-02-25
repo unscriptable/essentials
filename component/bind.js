@@ -64,25 +64,28 @@ const domUpdater
     }
 
 export const setProp
-    : string => SetOperation<Element>
     = name => el => value =>
         (el[name] = value, el)
 
 export const unsetProp
-    : string => UnsetOperation<Element>
     = name => el => () =>
         (el[name] = undefined, el)
 
 export const setAttr
-    : string => SetOperation<Element>
     = name => el => value =>
         (el.setAttribute(name, String(value)), el)
 
 export const unsetAttr
-    : string => UnsetOperation<Element>
     = name => el => () =>
         (el.removeAttribute(name), el)
 
+export const setClassNames
+    = addClass => el => className =>
+        (addClass(el, className), el)
+
+export const unsetClassNames
+    = removeClasses => el => () =>
+        (removeClasses(el), el)
 
 const querySnapshot
     = query => containerEl => Array.from(containerEl.querySelectorAll(query))

@@ -6,6 +6,24 @@ declare export var bindStatic : <T:Object>(Element, BindSpecs<T>) => BindFunctio
 
 declare export var updater : <T:Object>(BindSpecs<T>) => (Element, T) => void
 
+declare export var setProp
+    : string => SetOperation<Element>
+
+declare export var unsetProp
+    : string => UnsetOperation<Element>
+
+declare export var setAttr
+    : string => SetOperation<Element>
+
+declare export var unsetAttr
+    : string => UnsetOperation<Element>
+
+declare export var setClassNames
+    : ((Element, string) => any) => SetOperation<Element>
+
+declare export var unsetClassNames
+    : (Element => any) => UnsetOperation<Element>
+
 type BindFunction
     = <T:Object>(T) => void
 
