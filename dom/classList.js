@@ -40,7 +40,7 @@ const hasClassFunc
     = classSet => {
         // Convert array to object
         if (Array.isArray(classSet))
-            classSet = classSet.reduce((set, name) => set[name] = undefined, {})
+            classSet = classSet.reduce((set, name) => (set[name] = undefined, set), {})
         return classSet instanceof Set
             ? name => classSet.has(name)
             : name => name in classSet
