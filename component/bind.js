@@ -58,7 +58,7 @@ const domUpdater
         const unset = setter || (attr != null ? unsetAttr(attr) : unsetProp(prop))
         const elements = dynamic ? querySnapshot(query) : queryOnce(query)
         return (containerEl, value) =>
-            containerEl.querySelectorAll(query)
+            elements(containerEl)
                 .map(value === null ? set : unset)
                 .forEach(f => f(value))
     }
