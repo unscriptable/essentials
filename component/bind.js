@@ -63,7 +63,7 @@ const domUpdater
         return (containerEl, value) =>
             elements(containerEl)
                 // TODO: optimize this
-                .map(value === null ? unset : set) // "curry" element
+                .map(value == null ? unset : set) // "curry" element
                 .forEach(f => f(value))
     }
 
