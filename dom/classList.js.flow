@@ -1,0 +1,13 @@
+//@flow
+
+declare export var addClass : (HasClassList, string) => HasClassList
+
+declare export var removeClass : (HasClassList, string) => HasClassList
+
+declare export var removeClasses : HasClassList => HasClassList
+
+declare export var addClassFromSet
+    : <T:string>(ClassSet<T>) => (HasClassList, T) => HasClassList
+
+type ClassSet<T:string> = Set<T> | Array<T> | { [key:T]: any }
+type HasClassList = { classList: DOMTokenList }
