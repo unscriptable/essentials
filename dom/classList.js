@@ -27,7 +27,7 @@ export const removeAllClasses
 // a time and also ensuring that classNames outside the set are preserved.
 export const addClassFromSet
     = classSet => {
-        const hasClass = hasClassFinc(classSet)
+        const hasClass = hasClassFunc(classSet)
         return (el, className) => {
             const { classList } = el
             classList.forEach(name => hasClass(name) && classList.remove(name))
