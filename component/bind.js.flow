@@ -1,5 +1,4 @@
 //@flow
-// Data-binding functions
 
 declare export var bind : <T:Object>(Element, BindSpecs<T>) => BindFunction<T>
 declare export var bindStatic : <T:Object>(Element, BindSpecs<T>) => BindFunction<T>
@@ -31,9 +30,9 @@ type BindSpecs<T:Object>
     = { [key:$Keys<T>]: BindSpec }
 
 type BindSpec
-    = {| query: string, attr: string, dynamic?: boolean |}
-    | {| query: string, prop: string, dynamic?: boolean |}
-    | {| query: string, setter: Function, dynamic?: boolean |}
+    = {| query?: string, attr: string, dynamic?: boolean |}
+    | {| query?: string, prop: string, dynamic?: boolean |}
+    | {| query?: string, setter: Function, dynamic?: boolean |}
 
 type SetOperation<T> = (el:T) => (value:mixed) => T
 

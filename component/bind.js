@@ -1,4 +1,4 @@
-// TODO: build a work-around for lack of :scope selector in IE/opera
+// Data-binding functions
 export const bind
     = (containerEl, bindings) => {
         const push = dataPusher(bindings)
@@ -56,7 +56,10 @@ const domUpdater
     = ({ query, attr, prop, setter, dynamic=true }) => {
         const set = setter || (attr != null ? setAttr(attr) : setProp(prop))
         const unset = setter || (attr != null ? unsetAttr(attr) : unsetProp(prop))
-        const elements = dynamic ? querySnapshot(query) : queryOnce(query)
+        const elements
+            = query == null
+                ? x => [x]
+                : dynamic ? querySnapshot(query) : queryOnce(query)
         return (containerEl, value) =>
             elements(containerEl)
                 .map(value === null ? set : unset)
