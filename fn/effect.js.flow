@@ -28,7 +28,7 @@ type After5
     = <A,B,C,D,E,R>(f:QuinaryFn<A,B,C,D,E,R>, effect:SenaryFn<A,B,C,D,E,R,any>) => QuinaryFn<A,B,C,D,E,R>
 
 type After
-    = After0 & After1 & After2 & After3 & After4 & After5
+    = After5 & After4 & After3 & After2 & After1 & After0
 
 type Before0
     = <R>(f:NullaryFn<R>, effect:UnaryFn<R,any>) => NullaryFn<R>
@@ -44,7 +44,7 @@ type Before5
     = <A,B,C,D,E,R>(f:QuinaryFn<A,B,C,D,E,R>, effect:SenaryFn<A,B,C,D,E,R,any>) => QuinaryFn<A,B,C,D,E,R>
 
 type Before
-    = Before0 & Before1 & Before2 & Before3 & Before4 & Before5
+    = Before5 & Before4 & Before3 & Before2 & Before1 & Before0
 
 type Trace0
     = <R>(f:NullaryFn<R>, before:UnaryFn<R,any>, after:UnaryFn<R,any>) => NullaryFn<R>
@@ -60,4 +60,4 @@ type Trace5
     = <A,B,C,D,E,R>(f:QuinaryFn<A,B,C,D,E,R>, before:SenaryFn<A,B,C,D,E,R,any>, after:SenaryFn<A,B,C,D,E,R,any>) => QuinaryFn<A,B,C,D,E,R>
 
 type Trace
-    = Trace0 & Trace1 & Trace2 & Trace3 & Trace4 & Trace5
+    = Trace5 & Trace4 & Trace3 & Trace2 & Trace1 & Trace0
