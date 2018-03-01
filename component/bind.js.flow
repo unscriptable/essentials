@@ -27,7 +27,7 @@ type BindFunction
     = <T:Object>(T) => void
 
 type BindSpecs<T:Object>
-    = { [key:$Keys<T>]: BindSpec }
+    = { [key:$Keys<T>]: BindSpec | Array<BindSpec> }
 
 type BindSpec
     = {| query?: string, attr: string, dynamic?: boolean |}
