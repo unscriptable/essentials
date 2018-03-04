@@ -31,6 +31,6 @@ export const compose
 
 const composeN
     = (f, ...gs) =>
-        (...x) => gs.reduce((value, g) => g(value), f(...x))
+        (...x) => gs.reduceRight((value, g) => g(value), f(...x))
 
 const composers = [ x=>x, compose2, compose3, compose4, compose5 ]
