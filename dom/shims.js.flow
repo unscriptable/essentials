@@ -1,0 +1,4 @@
+//@flow
+declare export var matches: () => void
+
+declare export var all: () => void

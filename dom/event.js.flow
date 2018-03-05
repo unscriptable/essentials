@@ -1,0 +1,5 @@
+//@flow
+declare export var eventHandler
+    : (string, Function, boolean) => (Element, string) => { add: V, remove: V }
+
+type V = () => void
