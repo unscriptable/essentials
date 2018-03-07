@@ -7,4 +7,4 @@ export {
     addClass, removeClass, removeAllClasses, addClassFromSet
 } from './classList'
 export { matches, all } from './shims'
-export { eventHandler } from './event'
+export { eventHandler, addEvent } from './event'
