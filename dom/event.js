@@ -10,3 +10,10 @@ export const eventHandler
             remove: () => el.removeEventListener(type, maybeHandle, useCapture)
         }
     }
+
+export const addEvent
+    = (el, type, handle, query=null, useCapture=false) => {
+        const { add, rem } = eventHandler(type, handle, useCapture)(el, query)
+        add()
+        return rem
+    }

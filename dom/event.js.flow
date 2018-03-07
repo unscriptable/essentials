@@ -1,5 +1,8 @@
 //@flow
 declare export var eventHandler
-    : (string, Function, boolean) => (Element, string) => { add: V, remove: V }
+    : (string, Function, ?boolean) => (Element, ?string) => { add: V, remove: V }
+
+declare export var addEvent
+    : (Element, string, Function, ?string, ?boolean) => V
 
 type V = () => void
