@@ -24,7 +24,7 @@ declare export var unsetClassNames
     : (Element => any) => UnsetOperation<Element>
 
 type BindFunction
-    = <T:Object>(T) => void
+    = <T:Object>(T) => T
 
 type BindSpecs<T:Object>
     = { [key:$Keys<T>]: BindSpec | Array<BindSpec> }

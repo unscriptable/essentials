@@ -31,6 +31,7 @@ const dataPusher
                     if (key in binders) binders[key](containerEl, data[key])
                 }
             )
+            return data
         }
     }
 
