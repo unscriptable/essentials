@@ -62,3 +62,4 @@ type Compose
     & Compose4_5 & Compose4_4 & Compose4_3 & Compose4_2 & Compose4_1
     & Compose3_5 & Compose3_4 & Compose3_3 & Compose3_2 & Compose3_1
     & Compose2_5 & Compose2_4 & Compose2_3 & Compose2_2 & Compose2_1
+    & (...fs:Array<Function>) => Function

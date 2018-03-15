@@ -30,7 +30,11 @@ export const compose
         (composers[gs.length] || composeN)(f, ...gs)
 
 const composeN
-    = (f, ...gs) =>
-        (...x) => gs.reduceRight((value, g) => g(value), f(...x))
+    = (...gs) => {
+        const last = gs.length - 1
+        const f = gs[last]
+        return (...x) =>
+            gs.slice(0, last).reduceRight((value, g) => g(value), f(...x))
+    }
 
 const composers = [ x=>x, compose2, compose3, compose4, compose5 ]
