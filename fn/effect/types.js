@@ -1,18 +1,8 @@
 //@flow
 
-declare export var after : After
-
-declare export var before : Before
-
-declare export var trace : Trace
-
-declare export var tap : <T>(T=>any) => T => T
-
-declare export var failWith : <T:Function>(Error=>any) => T => T
-
 import type {
     NullaryFn, UnaryFn, BinaryFn, TernaryFn, QuarternaryFn, QuinaryFn, SenaryFn
-} from './types'
+} from '../types'
 
 type After0
     = <R>(f:NullaryFn<R>, effect:UnaryFn<R,any>) => NullaryFn<R>
@@ -27,7 +17,7 @@ type After4
 type After5
     = <A,B,C,D,E,R>(f:QuinaryFn<A,B,C,D,E,R>, effect:SenaryFn<A,B,C,D,E,R,any>) => QuinaryFn<A,B,C,D,E,R>
 
-type After
+export type After
     = After5 & After4 & After3 & After2 & After1 & After0
 
 type Before0
@@ -43,7 +33,7 @@ type Before4
 type Before5
     = <A,B,C,D,E,R>(f:QuinaryFn<A,B,C,D,E,R>, effect:SenaryFn<A,B,C,D,E,R,any>) => QuinaryFn<A,B,C,D,E,R>
 
-type Before
+export type Before
     = Before5 & Before4 & Before3 & Before2 & Before1 & Before0
 
 type Trace0
@@ -59,5 +49,5 @@ type Trace4
 type Trace5
     = <A,B,C,D,E,R>(f:QuinaryFn<A,B,C,D,E,R>, before:SenaryFn<A,B,C,D,E,R,any>, after:SenaryFn<A,B,C,D,E,R,any>) => QuinaryFn<A,B,C,D,E,R>
 
-type Trace
+export type Trace
     = Trace5 & Trace4 & Trace3 & Trace2 & Trace1 & Trace0
