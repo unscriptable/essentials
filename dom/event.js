@@ -13,7 +13,7 @@ export const eventHandler
 
 export const addEvent
     = (el, type, handle, query=null, useCapture=false) => {
-        const { add, rem } = eventHandler(type, handle, useCapture)(el, query)
+        const { add, remove } = eventHandler(type, handle, useCapture)(el, query)
         add()
-        return rem
+        return remove
     }
