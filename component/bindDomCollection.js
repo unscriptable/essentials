@@ -79,7 +79,7 @@ const compare
     = sortByField => (item1, item2) => {
         const field1 = item1[sortByField]
         const field2 = item2[sortByField]
-        return field1 > field2 ? -1 : field1 < field2 ? 1 : 0
+        return field1 > field2 ? 1 : field1 < field2 ? -1 : 0
     }
 
 const findPosByKey

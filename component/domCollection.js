@@ -7,7 +7,7 @@ export const domCollection
 
         const create
             = data => {
-                const child = childElement.cloneNode(true)
+                const child = childPrototype.cloneNode(true)
                 return update(child, data)
             }
 
