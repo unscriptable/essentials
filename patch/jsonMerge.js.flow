@@ -3,9 +3,9 @@ declare export var jsonMerge : Clone => JsonMerge
 
 declare export var jsonMergeCollection : Clone => JsonMergeCollection
 
-export var arrayAdapter : ArrayAdapter
+declare export var arrayAdapter : ArrayAdapter
 
-export var hashMapAdapter : HashMapAdapter
+declare export var hashMapAdapter : HashMapAdapter
 
 type HashMap<I> = { [key:string]: I }
 
