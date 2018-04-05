@@ -1,0 +1,9 @@
+//@flow
+
+declare export var querySelector : string => Element => ?Element
+
+declare export var querySelectorAll : string => Element => Array<Element>
+
+declare export var closest : string => Element => ?Element
+
+declare export var matches : string => Element => boolean

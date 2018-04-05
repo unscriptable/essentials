@@ -6,5 +6,7 @@ export {
 export {
     addClass, removeClass, removeAllClasses, addClassFromSet
 } from './classList'
-export { matches, all } from './shims'
-export { eventHandler, addEvent } from './event'
+export { all } from './shims'
+export { eventHandler, addEvent, target, squelch } from './event'
+export { querySelector, querySelectorAll, closest, matches } from './query'
+export { assertType } from './type'

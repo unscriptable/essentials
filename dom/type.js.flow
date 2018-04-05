@@ -1,0 +1,4 @@
+//@flow
+
+declare export var assertType
+    : <T:Element>(cls:Class<T>) => (el:mixed) => T

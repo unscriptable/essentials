@@ -17,3 +17,7 @@ export const addEvent
         add()
         return remove
     }
+
+export const squelch = event => event.preventDefault()
+
+export const target = event => event.target
