@@ -1,6 +1,6 @@
 {
   "name": "essentials",
-  "version": "0.10.3",
+  "version": "0.11.0",
   "description": "Essential functions for modern apps.",
   "main": "index.js",
   "scripts": {
