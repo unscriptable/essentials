@@ -5,7 +5,7 @@ declare export var eventHandler
 declare export var addEvent
     : (Element, string, Function, ?string, ?boolean) => V
 
-declare export var squelch : Event => void
+declare export var prevent : Event => void
 
 declare export var target : Event => Element // Note: this is really EventTarget
 
