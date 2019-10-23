@@ -25,7 +25,6 @@ export const compose5
         (...x) => f(g(h(j(k(...x)))))
 
 export const compose
-    : any
     = (f, ...gs) =>
         (composers[gs.length] || composeN)(f, ...gs)
 
