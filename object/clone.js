@@ -35,6 +35,7 @@ export const cloneJson
 export const cloneSimple
     = cloneDeep(
         x => {
+            if (typeof x !== 'object') return
             if (x instanceof Date) return new Date(x)
             if (x instanceof Map) return new Map(cloneSimple(Array.from(x)))
             if (x instanceof Set) return new Set(cloneSimple(Array.from(x)))
