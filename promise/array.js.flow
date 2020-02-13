@@ -1,0 +1,3 @@
+//@flow
+declare export var map
+  : <A,R>(A=>R|Promise<R>) => Array<A> => Promise<Array<R>>
