@@ -1,0 +1,4 @@
+//@flow
+
+declare export var spread
+  : <A,R>((...Array<A>)=>R) => Array<A> => R
