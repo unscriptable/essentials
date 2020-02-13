@@ -1,0 +1,12 @@
+//@flow
+
+type Stack<S>
+  = { push: Push<S>, pop: Pop<S>, items: Items<S> }
+
+type Push<S> = S => S
+type Pop<S> = () => ?S
+type Items<S> = () => Array<S>
+
+type Clone<S> = S => S
+
+declare export var stack : <S>(Clone<S>) => ?S => Stack<S>
