@@ -9,6 +9,11 @@
 //   (accepts the current state and a value and returns a new state) and get
 //   back an identity function (passes the input through to the output) that
 //   saves the state returned from the state mutation function as a side effect.
+// assign((currentState, value) => newProperties) - Provide a state mutation
+//   function (accepts the current state and a value and returns new properties)
+//   and get back an identity function (passes the input through to the output)
+//   that saves new state properties returned from the state mutation function
+//   as a side effect.
 // view((currentState, value) => f(currentState, value)) - Works like merge,
 //   but the provided function doesn't mutate the state.
 // Example usage:
@@ -16,7 +21,7 @@
 // getX()
 //   .then(merge((state, x) => ({ ...state, x })))
 //   .then(transformToY) // receives x
-//   .then(merge((state, y) => ({ ...state, y })))
+//   .then(assign((_, y) => ({ y })))
 //   .then(getZFromY) // receives y
 //   .then(view(({ x, y }, z) => doSomething(x, y, z))
 export const repo
@@ -24,6 +29,8 @@ export const repo
     let state = clone(initialState)
 
     const merge = f => value => ( state = clone(f(state, value)), value )
+    const assign
+      = f => value => ( state = { ...state, ...clone(f(state, value)) }, value )
     const view = f => value => f(clone(state), value)
 
     return { merge, view }

@@ -1,9 +1,10 @@
 //@flow
 
 type Repo<S>
-  = { merge: Merge<S>, view: View<S> }
+  = { merge: Merge<S>, assign: Assign<S>, view: View<S> }
 
 type Merge<S> = <K>((S,K) => S) => (K => K)
+type Assign<S:Object> = <K>((S,K) => S) => (K => K)
 type View<S> = <K,R>((S,K) => R) => (K => R)
 
 type Clone<S> = S => S
