@@ -39,5 +39,5 @@ export const repo
       = f => value => ( state = { ...state, ...clone(f(value)) }, value )
     const view = f => value => f(clone(state), value)
 
-    return { merge, view }
+    return { merge, assign, view }
   }
